@@ -76,7 +76,8 @@ class MyHomePage extends StatelessWidget{
               children: [
                 Text('GPA: X.XX'),
                 Text('GPA: Y.YY'),
-                Text('GPA: Z.ZZ')
+                Text('GPA: Z.ZZ'),
+                Text('Major: Computer Engineering'),
               ]
             ),
             
