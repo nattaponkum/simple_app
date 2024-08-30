@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_app/screens/latestRate.dart';
+import 'package:simple_app/screens/convert.dart';
 
 void main() {
   runApp(MaterialApp(

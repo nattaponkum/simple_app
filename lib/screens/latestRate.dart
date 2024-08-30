@@ -15,12 +15,13 @@ class _LatestRateState extends State<LatestRate> {
   initState() {
     super.initState();
     print("Init State");
+    getRate();
   }
   Future<Rate> getRate() async {
     var params = {
       "base": "THB"
     };
-    var uri = Uri.https("currency-converter-pro1.p.rapidapi.com", "/latest-rate", params);
+    var uri = Uri.https("currency-converter-pro1.p.rapidapi.com", "/latest-rates", params);
 
     var result = await http.get(uri, headers: {
       "X-RapidAPI-Host": "currency-converter-pro1.p.rapidapi.com",
@@ -33,6 +34,23 @@ class _LatestRateState extends State<LatestRate> {
   }
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return FutureBuilder(
+      future: getRate(), 
+      builder: (BuildContext context, AsyncSnapshot<Rate> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.hasError) {
+            return Center(
+              child: Text("Error: ${snapshot.error}"),
+            );
+          }
+          return Center(
+            child: Text("Rate: ${snapshot.data!.toString()}"),
+          );
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      });
   }
 }
