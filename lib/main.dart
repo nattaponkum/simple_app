@@ -3,12 +3,12 @@ import 'package:simple_app/screens/convert.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: "Simple App",
+    title: "Exchange Currency",
     home: Scaffold(
       appBar: AppBar(
-        title: Text("Simple App"),
+        title: const Text("Exchange Currency"),
       ),
-      body: Convert(),
+      body: const Convert(),
     ),
   ));
 }
