@@ -16,10 +16,10 @@ class _ConvertState extends State<Convert> {
   }
 
   Future<Currency> getCurrency() async {
-    var url =
+    var uri =
         Uri.parse("https://currency-converter-pro1.p.rapidapi.com/currencies");
 
-    var response = await http.get(url, headers: {
+    var response = await http.get(uri, headers: {
       "X-RapidAPI-Host": "currency-converter-pro1.p.rapidapi.com",
       "x-rapidapi-key": "C05GBKbyg0mshuD0FmkuTgEJe7mQp1QktrHjsndVBQ98Lef6WS"
     });
